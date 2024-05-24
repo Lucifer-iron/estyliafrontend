@@ -1,13 +1,13 @@
 import React from 'react'
 import Navright from './Navright'
-import ThemeSwitch from './ThemeSwitch'
+import ThemeSwitch from '../ThemeSwitch'
 
 function Navbar() {
     return (
-        <div className="navbar bg-base-100 fixed z-50">
+        <div className="navbar bg-gray-950 fixed z-50 h-8 justify-center items-center">
             <div className="navbar-start">
 
-                <div className="dropdown">
+                <div className="dropdown ">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
@@ -36,31 +36,31 @@ function Navbar() {
                     </ul>
 
                 </div>
-                <a className="btn btn-ghost text-xl">Estylia</a>
+                <a className="btn btn-ghost text-xl hover:bg-amber-400">Estylia</a>
 
             </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li>
+            <div className="navbar-center hidden lg:flex ">
+                <ul className="menu menu-horizontal px-1 ">
+                    <li className='hover:bg-amber-400 rounded-md'>
                         <a>
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
                             Home
                             {/* <span className="badge badge-sm">99+</span> */}
                         </a>
                     </li>
-                    <li>
+                    <li className='hover:bg-amber-400 rounded-md'>
                         <a>Men</a>
                     </li>
-                    <li>
+                    <li className='hover:bg-amber-400 rounded-md'>
                         <a>Women</a>
                     </li>
-                    <li>
+                    <li className='hover:bg-amber-400 rounded-md'>
                         <a>
                             Sale
                             
                         </a>
                     </li>
-                    <li><a>About</a></li>
+                    <li className='hover:bg-amber-400 rounded-md'><a>About</a></li>
                 </ul>
             </div>
             <Navright />
