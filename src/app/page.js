@@ -2,6 +2,7 @@ import Image from "next/image";
 import HeroCaraousel from "./components/HeroCaraousel";
 import Hero1 from "./components/Hero1";
 import Card1 from "./components/Card1";
+import React from "react";
 
 export default function Home() {
   return (

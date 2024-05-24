@@ -1,38 +1,86 @@
-import React from 'react'
+ "use client";
 
-function HeroCaraousel() {
+import React from "react";
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+import "./HeroCaraousel.css";
+
+
+const HeroCaraousel = () => {
+  const images = [
+    // Add your image URLs here
+    "/image1.jpg",
+    "/image2.jpg",
+    "/image3.jpg",
+    "/image4.jpg",
+    "/image5.jpg",
+  ];
+
+  const generateSlides = () => {
+    const slides = [];
+    for (let i = 0; i < images.length; i++) {
+      slides.push({
+        src: images[i],
+        alt: `Slide ${i + 1}`,
+        title: `Slide ${i + 1}`,
+        description: `This is the description for slide ${i + 1}.`,
+        buttonText: 'Shop Now',
+      });
+    }
+    return slides;
+  };
+
+  const options = {
+    type: 'loop',
+    autoWidth: true,
+    focus: 0,
+    omitEnd: true,
+    autoplay: true,
+    resetProgress: false,
+    arrows: false,
+    pagination: true,
+    perPage: 1,
+    perMove: 1,
+    interval: 2000,
+    pauseOnFocus: true,
+    pauseOnHover: true,
+    pauseOnTrim: true,
+    waitForTransition: true,
+    keyboard: true,
+    drag: true,
+    dragAngleThreshold: 30,
+    swipeDistanceThreshold: 150,
+    flickVelocityThreshold: 3,
+    trimSpace: true,
+    trimFractions: true,
+    updateOnMove: false,
+    throttle: 100,
+    TimeRanges: 5000,
+    height: '30rem',
+
+  };
+
   return (
-    <div className="carousel w-lvw max-h-full">
-    <div id="slide1" className="carousel-item relative w-full">
-      <img src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
-      <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide4" className="btn btn-circle">❮</a> 
-        <a href="#slide2" className="btn btn-circle">❯</a>
-      </div>
-    </div> 
-    <div id="slide2" className="carousel-item relative w-full">
-      <img src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
-      <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide1" className="btn btn-circle">❮</a> 
-        <a href="#slide3" className="btn btn-circle">❯</a>
-      </div>
-    </div> 
-    <div id="slide3" className="carousel-item relative w-full">
-      <img src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
-      <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide2" className="btn btn-circle">❮</a> 
-        <a href="#slide4" className="btn btn-circle">❯</a>
-      </div>
-    </div> 
-    <div id="slide4" className="carousel-item relative w-full">
-      <img src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
-      <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide3" className="btn btn-circle">❮</a> 
-        <a href="#slide1" className="btn btn-circle">❯</a>
+    <div className="home-banner">
+      <div className="wrapper">
+        <Splide options={options} hasTrack={false}>
+          <div style={{ position: 'relative' }}>
+            <SplideTrack>
+              {generateSlides().map((slide, index) => (
+                <SplideSlide key={index}>
+            
+                  <img src={slide.src} alt={slide.alt} />
+                </SplideSlide>
+              ))}
+            </SplideTrack>
+          </div>
+          <div className="splide__progress">
+            <div className="splide__progress__bar" />
+          </div>
+        </Splide>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default HeroCaraousel
+export default HeroCaraousel;
